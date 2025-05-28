@@ -15,8 +15,8 @@ tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}'
 echo "Web access (read-write):"
 tmate -S /tmp/tmate.sock display -p '#{tmate_web}'
 
-# Start PufferPanel
-pufferpanel serve &
+# Start dummy server on port 8080 to keep Render port open
+python3 -m http.server 8080 &
 
 # Keep alive
 while true; do
